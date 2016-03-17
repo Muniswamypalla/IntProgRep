@@ -1,6 +1,5 @@
 package com.arya.test;
 
-import java.util.Arrays;
 
 public class DistinctArray {
 
