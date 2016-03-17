@@ -28,33 +28,20 @@ public class RemoveDuplicatesInArray {
 		// 2.use quick sort then use below logic
 		int[] arr = new int[] { 1, 1, 1, 2, 2, 3, 4, 5 };
 		int[] result = new int[arr.length];
-		/*int previous = arr[0];
+		int previous = arr[0];
 		result[0] = previous;
 		int count =0;
 
 		for (int i = 1; i < arr.length; i++) {
-			int ch = arr[i];
 
-			if (previous != ch) {
+			if (previous != arr[i]) {
 				result[count++] = previous;
 			}
-			previous = ch;
+			previous = arr[i];
 		}
 
-		System.out.println(Arrays.toString(result));*/
-		
-		for (int i = 1; i < result.length; i++) {
-			
-			if(arr[i] == arr[i-1])
-			{
-				result[i-1] = arr[i];
-				i+=1;
-			}
-			else
-				result[i-1] = arr[i];
-		}
-		
 		System.out.println(Arrays.toString(result));
+		
 		
 	}
 

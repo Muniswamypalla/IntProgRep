@@ -20,6 +20,7 @@ public class QuickSort {
 		int i = startIndex;
 		int j = endIndex;
 		int pivot = array[startIndex+(endIndex-startIndex)/2];
+		
 		while(i<=j)
 		{
 			
