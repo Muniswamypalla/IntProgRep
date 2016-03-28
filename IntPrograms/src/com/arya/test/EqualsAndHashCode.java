@@ -76,7 +76,7 @@ class Emp {
 																// should not
 																// throw NPE.
 			result = false;// should not use instanceof bez we can pass subclass
-							// also so use getclass().
+							// so use getclass().
 		else {
 			Emp e = (Emp) obj;
 
