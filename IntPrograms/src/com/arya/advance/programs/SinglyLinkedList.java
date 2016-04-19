@@ -1,40 +1,5 @@
 package com.arya.advance.programs;
 
-class Nodes<T>
-{
-	private T data;
-	
-	private Nodes<T> nextNode;
-	
-	Nodes()
-	{
-		
-	}
-	
-	Nodes(T data)
-	{
-		this.data = data;
-		this.nextNode = null;
-	}
-
-	public T getData() {
-		return data;
-	}
-
-	public void setData(T data) {
-		this.data = data;
-	}
-
-	public Nodes<T> getNextNode() {
-		return nextNode;
-	}
-
-	public void setNextNode(Nodes<T> nextNode) {
-		this.nextNode = nextNode;
-	}
-	
-}
-
 public class SinglyLinkedList<E> {
 	
 	private Nodes<E> head;
@@ -128,7 +93,7 @@ public class SinglyLinkedList<E> {
 			dElement = cur.getData();
 			cur.setNextNode(cur.getNextNode().getNextNode());
 		}
-		
+		this.size--;
 		return dElement;
 	}
 	
@@ -166,6 +131,7 @@ public class SinglyLinkedList<E> {
 			}
 		}
 		
+		this.size--;
 		return dElement;
 		
 	}
@@ -193,5 +159,40 @@ public class SinglyLinkedList<E> {
 		return ""+head;
 	}
 	
+	
+}
+
+class Nodes<T>
+{
+	private T data;
+	
+	private Nodes<T> nextNode;
+	
+	Nodes()
+	{
+		
+	}
+	
+	Nodes(T data)
+	{
+		this.data = data;
+		this.nextNode = null;
+	}
+
+	public T getData() {
+		return data;
+	}
+
+	public void setData(T data) {
+		this.data = data;
+	}
+
+	public Nodes<T> getNextNode() {
+		return nextNode;
+	}
+
+	public void setNextNode(Nodes<T> nextNode) {
+		this.nextNode = nextNode;
+	}
 	
 }
