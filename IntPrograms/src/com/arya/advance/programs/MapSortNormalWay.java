@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.Set;
 
 class Test1 {
-	@SuppressWarnings("unchecked")
 	public static void sortByValue(Map<String,Integer> unsortedMap) {
 		Set<Map.Entry<String,Integer>> set = unsortedMap.entrySet();
 		List<Map.Entry<String,Integer>> list = new ArrayList<Map.Entry<String,Integer>>(set);
