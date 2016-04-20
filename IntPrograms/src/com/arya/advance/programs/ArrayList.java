@@ -2,7 +2,7 @@ package com.arya.advance.programs;
 
 import java.util.Arrays;
 
-public class ArrayList {
+public class ArrayList<E> {
 
 	private int defaultSize = 5;
 
@@ -16,8 +16,13 @@ public class ArrayList {
 		arr = new Object[defaultSize];
 		this.size = defaultSize;
 	}
+	
+	ArrayList(int size) {
+		arr = new Object[size];
+		this.size = size;
+	}
 
-	public void add(Object obj) {
+	public void add(E obj) {
 		if (this.index >= size)
 			incrementArrayList();
 
@@ -64,7 +69,7 @@ public class ArrayList {
 
 	public static void main(String[] args) {
 		
-		ArrayList mal = new ArrayList();
+		ArrayList<Integer> mal = new ArrayList<Integer>();
         mal.add(new Integer(2));
         mal.add(new Integer(5));
         mal.add(new Integer(1));
