@@ -25,6 +25,30 @@ public class SinglyLinkedList<E> {
 		singlyLinkedList.iterator();
 	}
 	
+	/*1) Use two pointers fast and slow
+	2) Move fast two nodes and slow one node in each iteration
+	3) If fast and slow meet then linked list contains cycle
+	4) if fast points to null or fast.next points to null then linked list is not cyclic*/
+
+
+	public boolean isCyclic(){
+		
+		Nodes<E> fast = head;
+		Nodes<E> slow = head;
+       
+        while(fast!= null && fast.getNextNode() != null){
+            fast = fast.getNextNode().getNextNode();
+            slow = slow.getNextNode();
+           
+            //if fast and slow pointers are meeting then LinkedList is cyclic
+            if(fast == slow ){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 	public boolean add(E data) {
 
 		Nodes<E> temp = new Nodes<E>(data);
