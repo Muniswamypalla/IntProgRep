@@ -1,6 +1,8 @@
 package com.arya.string.programs;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
 
 /*To get all the permutations, we will first take out the first char from String and permute the remaining chars.
@@ -12,7 +14,7 @@ CB -> ACB, CAB, CBA*/
 
 public class AllPermutations {
 
-	public static Set<String> permutationFinder(String str) {
+	/*public static Set<String> permutationFinder(String str) {
 		Set<String> perm = new HashSet<String>();
 		// Handling error scenarios
 		if (str == null) {
@@ -24,6 +26,7 @@ public class AllPermutations {
 		char initial = str.charAt(0); // first character
 		String rem = str.substring(1); // Full string without first character
 		Set<String> words = permutationFinder(rem);
+		System.out.println(words);
 		for (String strNew : words) {
 			for (int i = 0; i <= strNew.length(); i++) {
 				perm.add(charInsert(strNew, initial, i));
@@ -33,23 +36,29 @@ public class AllPermutations {
 	}
 
 	public static String charInsert(String str, char c, int j) {
+		System.out.println("came ...");
 		String begin = str.substring(0, j);
 		String end = str.substring(j);
-		return begin + c + end;
-	}
+		String res = begin + c + end;
+		System.out.println("res "+res);
+		return res;
+	}*/
 
 	public static void main(String[] args) {
 		String s = "AAC";
 		String s1 = "ABC";
 		String s2 = "ABCD";
-		System.out.println("\nPermutations for " + s + " are: \n" + permutationFinder(s));
-		System.out.println("\nPermutations for " + s1 + " are: \n" + permutationFinder(s1));
-		System.out.println("\nPermutations for " + s2 + " are: \n" + permutationFinder(s2));
+	//	System.out.println("\nPermutations for " + s + " are: \n" + permutationFinder(s));
+	//	System.out.println("\nPermutations for " + s1 + " are: \n" + permutationFinder(s1));
+	//	System.out.println("\nPermutations for " + s2 + " are: \n" + permutationFinder(s2));
 		
-		//permutation("ABCD");
+		permutation("ABC");
+		
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		
 	}
 	
-	/*public static void permutation(String str) { 
+	public static void permutation(String str) {
 	    permutation("", str); 
 	}
 
@@ -60,5 +69,5 @@ public class AllPermutations {
 	        for (int i = 0; i < n; i++)
 	            permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i+1, n));
 	    }
-	}*/
+	}
 }
