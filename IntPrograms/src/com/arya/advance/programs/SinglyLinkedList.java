@@ -13,13 +13,15 @@ public class SinglyLinkedList<E> {
 		singlyLinkedList.add(1);
 		singlyLinkedList.add(2);
 		singlyLinkedList.add(3);
+		singlyLinkedList.add(4);
+		singlyLinkedList.add(5);
 		//singlyLinkedList.add(singlyLinkedList.size, 4);
 		singlyLinkedList.iterator();
 		
 		//removing based on index
 		//singlyLinkedList.remove(3);
 		//singlyLinkedList.iterator();
-		
+		//singlyLinkedList.findMidElement();
 		//removing based on object
 		System.out.println(singlyLinkedList.remove(new Integer(1)));
 		singlyLinkedList.iterator();
@@ -47,6 +49,32 @@ public class SinglyLinkedList<E> {
         }
         return false;
     }
+	
+	//finding middle element with one pass
+	
+	public void findMidElement()
+	{
+		Nodes<E> current = head;
+		Nodes<E> middle = head;
+		int length = 0;
+		
+		while(current.getNextNode() != null){
+	          length++;
+	          if(length%2 ==0){
+	              middle = middle.getNextNode();
+	          }
+	          current = current.getNextNode();
+	      }
+	    
+	      if(length%2 == 1){
+	          middle = middle.getNextNode();
+	      }
+
+	      System.out.println("length of LinkedList: " + length);
+	      System.out.println("middle element of LinkedList : " + middle.getData());
+
+
+	}
 
 
 	public boolean add(E data) {
