@@ -1,4 +1,4 @@
-package com.arya.simaple.programs;
+package com.arya.simple.programs;
 
 public class DeadLockTest {  
 	  public static void main(String[] args) {  

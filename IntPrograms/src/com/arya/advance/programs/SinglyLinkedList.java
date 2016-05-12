@@ -23,7 +23,8 @@ public class SinglyLinkedList<E> {
 		//singlyLinkedList.iterator();
 		//singlyLinkedList.findMidElement();
 		//removing based on object
-		System.out.println(singlyLinkedList.remove(new Integer(1)));
+		//System.out.println(singlyLinkedList.remove(new Integer(1)));
+		singlyLinkedList.reverseLinkedList();
 		singlyLinkedList.iterator();
 	}
 	
@@ -75,7 +76,21 @@ public class SinglyLinkedList<E> {
 
 
 	}
-
+	
+	public void reverseLinkedList() {
+		Nodes<E> current = head;
+		// For first node, previousNode will be null
+		Nodes<E> previousNode = null;
+		Nodes<E> nextNode;
+		while (current != null) {
+			nextNode = current.getNextNode();
+			// reversing the link
+			current.setNextNode(previousNode);
+			// moving currentNode and previousNode by 1 node
+			previousNode = current;
+			current = nextNode;
+		}
+	}  
 
 	public boolean add(E data) {
 

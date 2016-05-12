@@ -1,4 +1,4 @@
-package com.arya.simaple.programs;
+package com.arya.simple.programs;
  
 import java.util.HashMap;
 import java.util.Map;

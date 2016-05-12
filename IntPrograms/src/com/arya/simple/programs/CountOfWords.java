@@ -1,4 +1,4 @@
-package com.arya.simaple.programs;
+package com.arya.simple.programs;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -5,7 +5,7 @@ public class BinarySearchTree {
 	public static BNode root;
 
 	public BinarySearchTree() {
-		this.root = null;
+		BinarySearchTree.root = null;
 	}
 	
 	public static void main(String arg[]) {
@@ -30,11 +30,11 @@ public class BinarySearchTree {
 		System.out.println("");
 		System.out.println("Check whether BNode with value 4 exists : " + b.find(4));
 		System.out.println("Delete BNode with no children (2) : " + b.delete(2));
-		b.display(root);
+		b.display(BinarySearchTree.root);
 		System.out.println("\n Delete BNode with one child (4) : " + b.delete(4));
-		b.display(root);
+		b.display(BinarySearchTree.root);
 		System.out.println("\n Delete BNode with Two children (10) : " + b.delete(10));
-		b.display(root);
+		b.display(BinarySearchTree.root);
 	}
 
 	public boolean find(int id) {
@@ -137,7 +137,97 @@ public class BinarySearchTree {
 		}
 		return successsor;
 	}
+	
+	/**
+	 * Returns the minimum value in the Binary Search Tree.
+	 */
+	public int findMinimum() {
+		if (root == null) {
+			return 0;
+		}
+		BNode currNode = BinarySearchTree.root;
+		while (currNode.left != null) {
+			currNode = currNode.left;
+		}
+		return currNode.data;
+	}
 
+	/**
+	 * Returns the maximum value in the Binary Search Tree
+	 */
+	public int findMaximum() {
+		if (root == null) {
+			return 0;
+		}
+
+		BNode currNode = root;
+		while (currNode.right != null) {
+			currNode = currNode.right;
+		}
+		return currNode.data;
+	}
+
+	/**
+	 * Printing the contents of the tree in an inorder way.
+	 */
+	public void printInorder() {
+		printInOrderRec(root);
+		System.out.println("");
+	}
+
+	/**
+	 * Helper method to recursively print the contents in an inorder way
+	 */
+	private void printInOrderRec(BNode currRoot) {
+		if (currRoot == null) {
+			return;
+		}
+		printInOrderRec(currRoot.left);
+		System.out.print(currRoot.data + ", ");
+		printInOrderRec(currRoot.right);
+	}
+
+	/**
+	 * Printing the contents of the tree in a Preorder way.
+	 */
+	public void printPreorder() {
+		printPreOrderRec(root);
+		System.out.println("");
+	}
+
+	/**
+	 * Helper method to recursively print the contents in a Preorder way
+	 */
+	private void printPreOrderRec(BNode currRoot) {
+		if (currRoot == null) {
+			return;
+		}
+		System.out.print(currRoot.data + ", ");
+		printPreOrderRec(currRoot.left);
+		printPreOrderRec(currRoot.right);
+	}
+
+	/**
+	 * Printing the contents of the tree in a Postorder way.
+	 */
+	public void printPostorder() {
+		printPostOrderRec(root);
+		System.out.println("");
+	}
+
+	/**
+	 * Helper method to recursively print the contents in a Postorder way
+	 */
+	private void printPostOrderRec(BNode currRoot) {
+		if (currRoot == null) {
+			return;
+		}
+		printPostOrderRec(currRoot.left);
+		printPostOrderRec(currRoot.right);
+		System.out.print(currRoot.data + ", ");
+
+	}
+	
 	public void insert(int id) {
 		BNode newBNode = new BNode(id);
 		if (root == null) {
