@@ -4,7 +4,9 @@ public class FibonacciSeri {
 
 	public static void main(String[] args) {
 		
-		int a[] = new int[15];
+		int num = 10;
+		
+		int a[] = new int[num];
 		
 		a[0]=0;
 		a[1]=1;
@@ -14,7 +16,7 @@ public class FibonacciSeri {
 			a[i] = a[i-1]+a[i-2];
 		}
 		
-		for(int i=0; i< 15; i++){
+		for(int i=0; i< num; i++){
             System.out.print(a[i] + " ");
     }
 		
