@@ -8,7 +8,7 @@ public class ArrayToList {
 	public static void main(String[] args) {
 		String name[] = {"muni", "swamy", "arya","ramesh"};
 		
-		List l = Arrays.asList(name);
+		List<String> l = Arrays.asList(name);
 		
 		System.out.println(l);
 	}
