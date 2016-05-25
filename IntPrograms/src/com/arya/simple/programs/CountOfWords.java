@@ -18,13 +18,19 @@ public class CountOfWords {
 
 		String names[] = text.split(" ");
 		/*
-		 * for(int i=0;i<names.length;i++) { if(m.containsKey(names[i])) { int
-		 * count = m.get(names[i]); count++; m.put(names[i], count); } else
-		 * m.put(names[i], 1); }
-		 * 
-		 * for(Map.Entry<String, Integer> entry : m.entrySet()) {
-		 * System.out.println(entry.getKey()+": "+entry.getValue()); }
-		 */
+		for (int i = 0; i < names.length; i++) {
+			if (m.containsKey(names[i])) {
+				int count = m.get(names[i]);
+				count++;
+				m.put(names[i], count);
+			} else
+				m.put(names[i], 1);
+		}
+
+		for (Map.Entry<String, Integer> entry : m.entrySet()) {
+			System.out.println(entry.getKey() + ": " + entry.getValue());
+		}*/
+		 
 
 		int count = 1;
 
