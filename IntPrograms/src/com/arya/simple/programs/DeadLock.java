@@ -20,7 +20,7 @@ public class DeadLock implements Runnable {
 		DeadLock d =  new DeadLock();
 		Thread t = new Thread(d);
 		t.start();
-		t.join();
+		t.join(); //uncomment this line will leads to dead lock.
 	}
 
 }
