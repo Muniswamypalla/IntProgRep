@@ -15,6 +15,8 @@ public class DecimalToBinary {
 		            b[i] = a % 2;
 		            a = a / 2;
 		        }
+		        
+		        System.out.println(i);
 		        StringBuffer sb = new StringBuffer();
 		        for (int j = i; j > 0; j--)
 		        {
