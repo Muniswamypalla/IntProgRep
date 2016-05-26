@@ -20,11 +20,11 @@ public class ExecutionTest {
 	
 	public int m2()
 	{
-		System.out.println("instanc method");
+		System.out.println("instance method");
 		return 2;
 	}
 	{
-		System.out.println("normal block");
+		System.out.println("instance block");
 	}
 	
 	ExecutionTest()
