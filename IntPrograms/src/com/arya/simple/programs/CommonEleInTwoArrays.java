@@ -1,4 +1,4 @@
-package com.arya.advance.programs;
+package com.arya.simple.programs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
