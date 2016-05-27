@@ -1,5 +1,7 @@
 package com.arya.advance.programs;
 
+import java.util.LinkedList;
+
 public class SinglyLinkedList<E> {
 	
 	private Nodes<E> head;
@@ -17,6 +19,9 @@ public class SinglyLinkedList<E> {
 		singlyLinkedList.add(5);
 		//singlyLinkedList.add(singlyLinkedList.size, 4);
 		singlyLinkedList.iterator();
+		
+		LinkedList<Integer> list = new LinkedList<Integer>();
+		list.remove(1);
 		
 		//removing based on index
 		//singlyLinkedList.remove(3);
