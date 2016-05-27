@@ -229,36 +229,36 @@ public class SinglyLinkedList<E> {
 	
 }
 
-class Nodes<T>
+class Nodes<E>
 {
-	private T data;
+	private E data;
 	
-	private Nodes<T> nextNode;
+	private Nodes<E> nextNode;
 	
 	Nodes()
 	{
 		
 	}
 	
-	Nodes(T data)
+	Nodes(E data)
 	{
 		this.data = data;
 		this.nextNode = null;
 	}
 
-	public T getData() {
+	public E getData() {
 		return data;
 	}
 
-	public void setData(T data) {
+	public void setData(E data) {
 		this.data = data;
 	}
 
-	public Nodes<T> getNextNode() {
+	public Nodes<E> getNextNode() {
 		return nextNode;
 	}
 
-	public void setNextNode(Nodes<T> nextNode) {
+	public void setNextNode(Nodes<E> nextNode) {
 		this.nextNode = nextNode;
 	}
 	
