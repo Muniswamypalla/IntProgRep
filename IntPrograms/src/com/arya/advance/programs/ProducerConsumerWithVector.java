@@ -22,8 +22,9 @@ class Producer1 implements Runnable {
 			try {
 
 				// wait if queue is full
-				while (queue.size() == SIZE) {
+				
 					synchronized (queue) {
+						while (queue.size() == SIZE) {
 						System.out.println("Queue is full....");
 						queue.wait();
 					}
