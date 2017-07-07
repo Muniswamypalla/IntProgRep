@@ -1,14 +1,15 @@
 package com.arya.advance.programs;
 
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
 class Producer1 implements Runnable {
 
-	private final Vector<Object> queue;
+	private final List<Object> queue;
 
 	private final int SIZE;
 
-	public Producer1(Vector<Object> queue, int SIZE) {
+	public Producer1(List<Object> queue, int SIZE) {
 		super();
 		this.queue = queue;
 		this.SIZE = SIZE;
@@ -18,86 +19,66 @@ class Producer1 implements Runnable {
 	public void run() {
 
 		for (int i = 0; i < 10; i++) {
-
-			try {
-
-				// wait if queue is full
-				
-					synchronized (queue) {
-						while (queue.size() == SIZE) {
+			synchronized (queue) {
+				try {
+					// wait if queue is full
+					while (queue.size() == SIZE) {
 						System.out.println("Queue is full....");
 						queue.wait();
 					}
-
-				}
-
-				synchronized (queue) {
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} finally {
 					System.out.println("Produced " + i);
-
 					queue.add(i);
 					queue.notifyAll();
-
 				}
-				
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
 
 		}
 
 	}
-
 }
 
 class Consumer1 implements Runnable {
 
-	private final Vector<Object> queue;
+	private final List<Object> queue;
 	
 	private final int SIZE;
 
-	public Consumer1(Vector<Object> queue, int SIZE) {
+	public Consumer1(List<Object> queue, int SIZE) {
 		super();
 		this.queue = queue;
 		this.SIZE = SIZE;
 	}
 
 	@Override
-	public void run() {
+		public void run() {
 
-		while (true) {
-			try {
-				
-				while(queue.isEmpty())
-				{
-					synchronized (queue) {
-						
-						System.out.println("Queue is empty...");
-						queue.wait();
-						
+			while (true) {
+				synchronized (queue) {
+					try {
+						while (queue.isEmpty()) {
+							System.out.println("Queue is empty...");
+							queue.wait();
+						}
+						System.out.println("Consumed " + queue.get(0));
+						queue.remove(0);
+						queue.notifyAll();
+					} catch (InterruptedException e) {
+						e.printStackTrace();
 					}
 				}
-				
-				synchronized (queue) {
-					
-					System.out.println("Consumed "+queue.get(0));
-					queue.remove(0);
-					queue.notifyAll();
-				}
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+
 			}
 		}
 	}
-
-}
 
 public class ProducerConsumerWithVector {
 
 	public static void main(String[] args) {
 		
-		Vector<Object> queue = new Vector<Object>();
+		List<Object> queue = new ArrayList<Object>();
 		
 		Thread producer = new Thread(new Producer1(queue,5));
 		Thread consumer = new Thread(new Consumer1(queue,5));
