@@ -30,12 +30,12 @@ public class RemoveDuplicatesInArray {
 		int[] result = new int[arr.length];
 		int previous = arr[0];
 		result[0] = previous;
-		int count =0;
+		int count =1;
 
 		for (int i = 1; i < arr.length; i++) {
 
 			if (previous != arr[i]) {
-				result[count++] = previous;
+				result[count++] = arr[i];
 			}
 			previous = arr[i];
 		}
