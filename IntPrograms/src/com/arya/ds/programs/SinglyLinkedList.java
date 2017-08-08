@@ -72,11 +72,11 @@ public class SinglyLinkedList<E> {
 	          current = current.getNextNode();
 	      }
 	    
-	      if(length%2 == 1){
+	      /*if(length%2 == 1){
 	          middle = middle.getNextNode();
-	      }
+	      }*/
 
-	      System.out.println("length of LinkedList: " + length);
+	      System.out.println("length of LinkedList: " + ++length);
 	      System.out.println("middle element of LinkedList : " + middle.getData());
 
 
