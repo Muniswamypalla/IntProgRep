@@ -81,6 +81,20 @@ public class SinglyLinkedList<E> {
 
 
 	}
+	// start slow node after n position then it will equal to total-n
+	public E getNthNode(int n) {
+		Nodes<E> fast = head;
+		Nodes<E> slow = head;
+		int start = 1;
+		while (fast.getNextNode() != null) {
+			fast = fast.getNextNode();
+			start++;
+			if (start > n) {
+				slow = slow.getNextNode();
+			}
+		}
+		return slow.getData();
+	}
 	
 	public void reverseLinkedList() {
 		Nodes<E> current = head;
