@@ -109,6 +109,7 @@ public class SinglyLinkedList<E> {
 			previousNode = current;
 			current = nextNode;
 		}
+		head = previousNode;
 	}  
 
 	public boolean add(E data) {
