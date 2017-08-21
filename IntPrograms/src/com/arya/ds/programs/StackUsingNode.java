@@ -1,135 +1,78 @@
 package com.arya.ds.programs;
 
-public class StackUsingNode<E> {
+import java.util.EmptyStackException;
+
+public class StackUsingNode<T> {
+
+	private static class StackNode<T> {
+		private T data;
+		private StackNode<T> next;
+
+		public StackNode(T data) {
+			this.data = data;
+		}
+
+		public T getData() {
+			return data;
+		}
+	}
 	
-	private Snode<E> head;
-	private int size;
-	private int topSize = 5;
-	
+
+	private StackNode<T> top;
+	private int size = 0;
+
 	public static void main(String[] args) {
-		
 		StackUsingNode<Integer> stack = new StackUsingNode<Integer>();
-		
-		try {
-			stack.push(4);
-			stack.push(8);
-			stack.push(3);
-			stack.push(89);
-			stack.pop();
-			stack.push(34);
-			stack.push(45);
-			stack.push(78);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+
+		stack.push(1);
+		stack.push(2);
+		stack.push(3);
+		stack.push(4);
+		stack.push(5);
+
+		stack.iterate();
+		stack.pop();
+		stack.pop();
+		stack.iterate();
+	}
+
+	public T pop() {
+		if (top == null)
+			throw new EmptyStackException();
+		T item = top.getData();
+		top = top.next;
+		size--;
+		return item;
+	}
+
+	public void push(T item) {
+		StackNode<T> temp = new StackNode<T>(item);
+		temp.next = top;
+		top = temp;
+		size++;
+	}
+
+	public T peek() {
+		if (top == null)
+			throw new EmptyStackException();
+		return top.data;
+	}
+
+	public boolean isEmpty() {
+		return top == null;
+	}
+
+	public int size() {
+		return size;
+	}
+
+	private void iterate() {
+		StackNode<T> cur = top;
+		while (cur.next != null) {
+			System.out.print(cur.data + " -> ");
+			cur = cur.next;
 		}
-		try {
-			stack.pop();
-			stack.pop();
-			stack.pop();
-			stack.pop();
-			stack.pop();
-			stack.pop();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		
-	}
-	
-	public void push(E data) throws Exception
-	{
-		Snode<E> temp = new Snode<E>(data);
-		Snode<E> cursor = null;
-		
-		if(isFull())
-			throw new Exception("Stack is full.....");
-		
-		if(head == null)
-			head = temp;
-		else
-		{
-			cursor = head;
-			
-			while(cursor.nextNode != null)
-				cursor = cursor.nextNode;
-			
-			cursor.nextNode = temp;
-		}
-		
-		System.out.println("added: "+data);
-			
-		this.size++;
-	}
-	
-	public boolean isFull()
-	{
-		return (size == topSize);
-	}
-	
-	public boolean isEmpty()
-	{
-		return (size <= 0);
-	}
-	
-	public E pop()throws Exception
-	{
-		E ele = null;
-		Snode<E> cursor = head;
-		
-		if(isEmpty())
-			throw new Exception("Stack is empty.....");
-		
-		if(this.size == 1)
-		{
-			ele = head.data;
-			head = null;
-		}
-		else
-		{
-			for (int i = 0; i < this.size-2; i++) {
-				cursor = cursor.nextNode;
-			}
-			
-			ele = cursor.nextNode.data;
-			cursor.nextNode = null;
-		}
-		
-		System.out.println("removed: "+ele);
-		this.size--;
-		return ele;
-	}
-	
-}
-
-class Snode<E> {
-	
-	public Snode<E> nextNode;
-	public E data;
-
-	
-	public Snode() {
-		super();
-	}
-
-	public Snode(E data) {
-		super();
-		this.nextNode = null;
-		this.data = data;
-	}
-
-	public Snode<E> getNextNode() {
-		return nextNode;
-	}
-
-	public void setNextNode(Snode<E> nextNode) {
-		this.nextNode = nextNode;
-	}
-
-	public E getData() {
-		return data;
-	}
-
-	public void setData(E data) {
-		this.data = data;
+		System.out.println(cur.data);
 	}
 
 }
