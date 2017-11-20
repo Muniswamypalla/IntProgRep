@@ -47,12 +47,16 @@ class EmpIdComparator implements Comparator<Emp1> {
 		super();
 		this.flag = flag;
 	}
-
-
+	
 	@Override
 	public int compare(Emp1 o1, Emp1 o2) {
 
-		return o1.getId() > o2.getId() ? 1*flag : (o1.getId() < o2.getId() ? -1*flag : 0);
+		if (o1.getId() > o2.getId())
+			return 1 * flag;
+		else if (o1.getId() < o2.getId())
+			return -1 * flag;
+		else
+			return 0;
 	}
 }
 
