@@ -23,6 +23,7 @@ public class Singleton2 {
 	public static final Singleton2 getInstance() {
 		if (INSTANCE == null) {
 			synchronized (Singleton2.class) {
+				//double checked locking - because second check of Singleton instance with lock
 				if (INSTANCE == null) {
 					INSTANCE = new Singleton2();
 				}
