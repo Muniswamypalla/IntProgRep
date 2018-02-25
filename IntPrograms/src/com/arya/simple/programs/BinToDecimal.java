@@ -3,15 +3,16 @@ package com.arya.simple.programs;
 public class BinToDecimal {
 
 	public static void main(String[] args) {
-		String a= "0111";
+
+		String a = "0111";
 		String c = "10";
-		
+
 		int b = Integer.parseInt(a, 2);
-		int d = Integer.parseInt(c,2);
-		
-		//Binary to Decimal
+		int d = Integer.parseInt(c, 2);
+
+		// Binary to Decimal
 		System.out.println(b);
-		//Decimal to Binary
+		// Decimal to Binary
 		System.out.println(d);
 	}
 

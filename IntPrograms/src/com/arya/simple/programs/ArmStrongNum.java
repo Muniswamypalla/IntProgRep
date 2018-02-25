@@ -3,7 +3,8 @@ package com.arya.simple.programs;
 public class ArmStrongNum {
 
 	public static void main(String[] args) {
-		int n = 371, sum = 0, rem = 0,temp = n;
+		
+		int n = 371, sum = 0, rem = 0, temp = n;
 
 		while (n > 0) {
 			rem = n % 10;

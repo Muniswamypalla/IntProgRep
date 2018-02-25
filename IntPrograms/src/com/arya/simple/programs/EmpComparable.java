@@ -44,9 +44,14 @@ public class EmpComparable {
 		ts.add(new Emp(2, "arya"));
 
 		System.out.println("Emp sort by name:");
+
 		for (Emp e1 : ts) {
 			System.out.println(e1.getId() + "  " + e1.getName());
 		}
+		System.out.println("Emp sort by name:");
+
+		ts.forEach(e1 -> System.out.println(e1.getId() + "  " + e1.getName()));
+		
 	}
 
 }

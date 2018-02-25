@@ -18,6 +18,7 @@ public class IteratingMap {
 		keySetUsingIterator(loans);
 		entrySetUsingForeach(loans);
 		entrySetUsingIterator(loans);
+		entrySetUsingForeachJava8(loans);
 
 	}
 
@@ -35,9 +36,9 @@ public class IteratingMap {
 		Iterator<String> keySetIterator = keySet.iterator();
 		System.out.println("------------------------------------------");
 		while (keySetIterator.hasNext()) {
-			
+
 			String key = keySetIterator.next();
-			System.out.println( key + " : " + loans.get(key));
+			System.out.println(key + " : " + loans.get(key));
 		}
 
 	}
@@ -63,4 +64,16 @@ public class IteratingMap {
 		}
 
 	}
+	
+	public static void entrySetUsingForeachJava8(HashMap<String, String> loans) {
+
+		Set<Map.Entry<String, String>> entrySet = loans.entrySet();
+		System.out.println("------------------------------------------");
+		
+		entrySet.forEach(entry -> {
+			System.out.println(entry.getKey() + " : " + entry.getValue());
+		});
+
+	}
+
 }

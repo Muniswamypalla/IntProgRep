@@ -16,7 +16,7 @@ public class CapitalString {
 
 		System.out.println(output);
 
-		//System.out.println(capitalize(" muni swamy palla"));
+		// System.out.println(capitalize(" muni swamy palla"));
 
 	}
 

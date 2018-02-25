@@ -7,13 +7,13 @@ public class ExecutionTest {
 	
 	static
 	{
-		System.out.println("in static");
+		System.out.println("static block");
 		//m1();
 	} 
 	
 	public static int m1()
 	{
-		System.out.println("in a static method");
+		System.out.println("static method");
 		return 1;
 	}
 	

@@ -13,20 +13,19 @@ public class VowelInString {
 		}*/
 		
 		for (char c : name.toCharArray()) {
-	           switch (c) {
-	              case 'a':
-	                  case 'e':
-	                  case 'i':
-	                  case 'o':
-	                  case 'u':
-	                System.out.println(c);
-	          break;
-	          default:
-	                  // no count increment
-	          }
+			switch (c) {
+			case 'a':
+			case 'e':
+			case 'i':
+			case 'o':
+			case 'u':
+				System.out.println(c);
+				break;
+			default:
+				// no count increment
+			}
 
-	       }
-
+		}
 
 	}
 

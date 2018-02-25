@@ -8,6 +8,8 @@ public class MaxTwoNumInArray {
 		int secondMax = 0;
 		int thirdMax = 0;
 		
+		// or use quick sort then find element.
+		
 		for (int i = 0; i < nums.length; i++) {
 			
 			if(firstMax < nums[i])
