@@ -1,9 +1,6 @@
 package com.arya.string.programs;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
 
 /*To get all the permutations, we will first take out the first char from String and permute the remaining chars.
 If String = “ABC”
