@@ -66,14 +66,10 @@ public class IteratingMap {
 	}
 	
 	public static void entrySetUsingForeachJava8(HashMap<String, String> loans) {
-
-		Set<Map.Entry<String, String>> entrySet = loans.entrySet();
 		System.out.println("------------------------------------------");
-		
-		entrySet.forEach(entry -> {
-			System.out.println(entry.getKey() + " : " + entry.getValue());
+		loans.forEach((key,value) -> {
+			System.out.println(key + " : " + value);
 		});
-
 	}
 
 }
