@@ -7,11 +7,10 @@ public class BinarySearchTree {
 	public BinarySearchTree() {
 		BinarySearchTree.root = null;
 	}
-	
+
 	public static void main(String arg[]) {
-		
-		//read: http://algorithms.tutorialhorizon.com/binary-search-tree-complete-implementation/
-		
+
+		// http://algorithms.tutorialhorizon.com/binary-search-tree-complete-implementation/
 		BinarySearchTree b = new BinarySearchTree();
 		b.insert(3);
 		b.insert(8);
@@ -37,26 +36,38 @@ public class BinarySearchTree {
 		b.display(BinarySearchTree.root);
 	}
 
-	public boolean find(int id) {
+	public void insert(int id) {
+		BNode newBNode = new BNode(id);
+		if (root == null) {
+			root = newBNode;
+			return;
+		}
 		BNode current = root;
-		while (current != null) {
-			if (current.data == id) {
-				return true;
-			} else if (current.data > id) {
+		BNode parent = null;
+		while (true) {
+			parent = current;
+			if (id < current.data) {
 				current = current.left;
+				if (current == null) {
+					parent.left = newBNode;
+					return;
+				}
 			} else {
 				current = current.right;
+				if (current == null) {
+					parent.right = newBNode;
+					return;
+				}
 			}
 		}
-		return false;
 	}
 
 	public boolean delete(int id) {
-		
+
 		BNode parent = root;
 		BNode current = root;
 		boolean isLeftChild = false;
-		
+
 		while (current.data != id) {
 			parent = current;
 			if (current.data > id) {
@@ -70,7 +81,7 @@ public class BinarySearchTree {
 				return false;
 			}
 		}
-		
+
 		// if i am here that means we have found the node
 		// Case 1: if node to be deleted has no children
 		if (current.left == null && current.right == null) {
@@ -83,7 +94,7 @@ public class BinarySearchTree {
 				parent.right = null;
 			}
 		}
-		
+
 		// Case 2 : if node to be deleted has only one child
 		else if (current.right == null) {
 			if (current == root) {
@@ -117,6 +128,20 @@ public class BinarySearchTree {
 		return true;
 	}
 
+	public boolean find(int id) {
+		BNode current = root;
+		while (current != null) {
+			if (current.data == id) {
+				return true;
+			} else if (current.data > id) {
+				current = current.left;
+			} else {
+				current = current.right;
+			}
+		}
+		return false;
+	}
+
 	public BNode getSuccessor(BNode deleleBNode) {
 		BNode successsor = null;
 		BNode successsorParent = null;
@@ -126,21 +151,25 @@ public class BinarySearchTree {
 			successsor = current;
 			current = current.left;
 		}
-		// check if successor has the right child, it cannot have left child for
-		// sure
-		// if it does have the right child, add it to the left of
-		// successorParent.
-		// successsorParent
+		/*
+		 * check if successor has the right child, it cannot have left child for sure if
+		 * it does have the right child, add it to the left of successorParent.
+		 */
 		if (successsor != deleleBNode.right) {
 			successsorParent.left = successsor.right;
 			successsor.right = deleleBNode.right;
 		}
 		return successsor;
 	}
-	
-	/**
-	 * Returns the minimum value in the Binary Search Tree.
-	 */
+
+	public void display(BNode root) {
+		if (root != null) {
+			display(root.left);
+			System.out.print(" " + root.data);
+			display(root.right);
+		}
+	}
+
 	public int findMinimum() {
 		if (root == null) {
 			return 0;
@@ -152,9 +181,6 @@ public class BinarySearchTree {
 		return currNode.data;
 	}
 
-	/**
-	 * Returns the maximum value in the Binary Search Tree
-	 */
 	public int findMaximum() {
 		if (root == null) {
 			return 0;
@@ -167,17 +193,11 @@ public class BinarySearchTree {
 		return currNode.data;
 	}
 
-	/**
-	 * Printing the contents of the tree in an inorder way.
-	 */
 	public void printInorder() {
 		printInOrderRec(root);
 		System.out.println("");
 	}
 
-	/**
-	 * Helper method to recursively print the contents in an inorder way
-	 */
 	private void printInOrderRec(BNode currRoot) {
 		if (currRoot == null) {
 			return;
@@ -187,17 +207,11 @@ public class BinarySearchTree {
 		printInOrderRec(currRoot.right);
 	}
 
-	/**
-	 * Printing the contents of the tree in a Preorder way.
-	 */
 	public void printPreorder() {
 		printPreOrderRec(root);
 		System.out.println("");
 	}
 
-	/**
-	 * Helper method to recursively print the contents in a Preorder way
-	 */
 	private void printPreOrderRec(BNode currRoot) {
 		if (currRoot == null) {
 			return;
@@ -207,17 +221,11 @@ public class BinarySearchTree {
 		printPreOrderRec(currRoot.right);
 	}
 
-	/**
-	 * Printing the contents of the tree in a Postorder way.
-	 */
 	public void printPostorder() {
 		printPostOrderRec(root);
 		System.out.println("");
 	}
 
-	/**
-	 * Helper method to recursively print the contents in a Postorder way
-	 */
 	private void printPostOrderRec(BNode currRoot) {
 		if (currRoot == null) {
 			return;
@@ -227,45 +235,11 @@ public class BinarySearchTree {
 		System.out.print(currRoot.data + ", ");
 
 	}
-	
-	public void insert(int id) {
-		BNode newBNode = new BNode(id);
-		if (root == null) {
-			root = newBNode;
-			return;
-		}
-		BNode current = root;
-		BNode parent = null;
-		while (true) {
-			parent = current;
-			if (id < current.data) {
-				current = current.left;
-				if (current == null) {
-					parent.left = newBNode;
-					return;
-				}
-			} else {
-				current = current.right;
-				if (current == null) {
-					parent.right = newBNode;
-					return;
-				}
-			}
-		}
-	}
-
-	public void display(BNode root) {
-		if (root != null) {
-			display(root.left);
-			System.out.print(" " + root.data);
-			display(root.right);
-		}
-	}
 
 }
 
 class BNode {
-	
+
 	int data;
 	BNode left;
 	BNode right;
