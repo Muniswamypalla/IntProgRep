@@ -30,9 +30,9 @@ public class ArrayList<E> {
 
 	}
 
-	public Object get(int index) {
+	public E get(int index) {
 		if (index < this.index)
-			return arr[index];
+			return (E) arr[index];
 		else
 			throw new IndexOutOfBoundsException();
 	}
