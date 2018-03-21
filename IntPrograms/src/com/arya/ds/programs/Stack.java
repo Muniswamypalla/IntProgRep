@@ -1,19 +1,19 @@
 package com.arya.ds.programs;
 
-public class Stack {
+public class Stack<E> {
 
 	private int stackSize;
-	private int[] stackArr;
+	private Object[] stackArr;
 	private int top;
 
 	public Stack(int size) {
 		this.stackSize = size;
-		this.stackArr = new int[stackSize];
+		this.stackArr = new Object[stackSize];
 		this.top = -1;
 	}
 
 	public static void main(String[] args) {
-		Stack stack = new Stack(5);
+		Stack<Integer> stack = new Stack<Integer>(5);
 		try {
 			stack.push(4);
 			stack.push(8);
@@ -38,7 +38,7 @@ public class Stack {
 		}
 	}
 
-	public void push(int entry) throws Exception {
+	public void push(E entry) throws Exception {
 		if (this.isStackFull()) {
 			throw new Exception("Stack is already full. Can not add element.");
 		}
@@ -46,17 +46,17 @@ public class Stack {
 		this.stackArr[++top] = entry;
 	}
 
-	public int pop() throws Exception {
+	public E pop() throws Exception {
 		if (this.isStackEmpty()) {
 			throw new Exception("Stack is empty. Can not remove element.");
 		}
-		int entry = this.stackArr[top--];
+		E entry = (E) this.stackArr[top--];
 		System.out.println("Removed entry: " + entry);
 		return entry;
 	}
 
-	public int peek() {//returning top element in the stack with out removing.
-		return stackArr[top];
+	public E peek() {// returning top element in the stack with out removing.
+		return (E) stackArr[top];
 	}
 
 	public boolean isStackEmpty() {
