@@ -1,6 +1,6 @@
 package com.arya.ds.programs;
 
-public class LinkedHashMap<K, V> {
+public class MyLinkedHashMap<K, V> {
 
 	private Entry<K, V>[] table; // Array of Entry.
 	private int capacity = 4; // Initial capacity of HashMap
@@ -9,7 +9,7 @@ public class LinkedHashMap<K, V> {
 
 	public static void main(String[] args) {
 		
-		LinkedHashMap<Integer, Integer> linkedHashMapCustom = new LinkedHashMap<Integer, Integer>();
+		MyLinkedHashMap<Integer, Integer> linkedHashMapCustom = new MyLinkedHashMap<Integer, Integer>();
 
 		linkedHashMapCustom.put(21, 12);
 		linkedHashMapCustom.put(25, 121);
@@ -49,7 +49,7 @@ public class LinkedHashMap<K, V> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public LinkedHashMap() {
+	public MyLinkedHashMap() {
 		table = new Entry[capacity];
 	}
 

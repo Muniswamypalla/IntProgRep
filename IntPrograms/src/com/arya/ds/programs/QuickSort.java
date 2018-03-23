@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class QuickSort {
 
 	public static void main(String[] args) {
+		// Worst: O(n2) Avg: O(n log n)
 		int arr[] = { 24, 2, 45, 20, 56, 75, 2, 56, 99, 53, 12 };
 		new QuickSort().sort(arr);
 		System.out.println(Arrays.toString(arr));

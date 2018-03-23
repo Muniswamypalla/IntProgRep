@@ -1,19 +1,19 @@
 package com.arya.ds.programs;
 
-public class Stack<E> {
+public class MyStack<E> {
 
 	private int stackSize;
 	private Object[] stackArr;
 	private int top;
 
-	public Stack(int size) {
+	public MyStack(int size) {
 		this.stackSize = size;
 		this.stackArr = new Object[stackSize];
 		this.top = -1;
 	}
 
 	public static void main(String[] args) {
-		Stack<Integer> stack = new Stack<Integer>(5);
+		MyStack<Integer> stack = new MyStack<Integer>(5);
 		try {
 			stack.push(4);
 			stack.push(8);

@@ -1,6 +1,6 @@
 package com.arya.ds.programs;
 
-public class HashMap<K, V> {
+public class MyHashMap<K, V> {
 
 	private Entry<K, V>[] table; // Array of Entry.
 	private int capacity = 4; // Initial capacity of HashMap
@@ -18,12 +18,12 @@ public class HashMap<K, V> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public HashMap() {
+	public MyHashMap() {
 		table = new Entry[capacity];
 	}
 
 	public static void main(String[] args) {
-		HashMap<Integer, Integer> hashMapCustom = new HashMap<Integer, Integer>();
+		MyHashMap<Integer, Integer> hashMapCustom = new MyHashMap<Integer, Integer>();
 		hashMapCustom.put(21, 12);
 		hashMapCustom.put(25, 121);
 		hashMapCustom.put(30, 151);

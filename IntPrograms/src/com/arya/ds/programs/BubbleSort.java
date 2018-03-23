@@ -7,6 +7,7 @@ public class BubbleSort {
 	public static void main(String[] args) {
 		
 		//for matter check this link http://javarevisited.blogspot.in/2014/08/bubble-sort-algorithm-in-java-with.html
+		// Worst: O(n2) Avg: O(n2)
 
 		int[] input = {32, 39,21, 45, 23, 3};
 

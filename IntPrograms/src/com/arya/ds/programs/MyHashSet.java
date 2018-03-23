@@ -1,12 +1,12 @@
 package com.arya.ds.programs;
 
-public class HashSet<E> {
+public class MyHashSet<E> {
 	
 	private transient java.util.HashMap<E, Object> map;
 	// Dummy value to associate with an Object in the backing Map
 	private static final Object PRESENT = new Object();
 
-	public HashSet() {
+	public MyHashSet() {
 		map = new java.util.HashMap<>();
 	}
 

@@ -1,6 +1,6 @@
 package com.arya.ds.programs;
 
-public class Queue {
+public class MyQueue {
 
 	private static final int capacity = 3;
 	int arr[] = new int[capacity];
@@ -40,7 +40,7 @@ public class Queue {
 	}
 
 	public static void main(String[] args) {
-		Queue queue = new Queue();
+		MyQueue queue = new MyQueue();
 		queue.pop();
 		queue.push(23);
 		queue.push(2);
