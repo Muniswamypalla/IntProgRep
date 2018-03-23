@@ -223,6 +223,37 @@ public class SinglyLinkedList<E> {
 		
 	}
 	
+	public boolean addInSorted(E data) {
+
+		Nodes<E> temp = new Nodes<E>(data);
+		Nodes<E> cur = head;
+
+		if (head == null) {
+			// head is null add temp node to head.
+			head = temp;
+			this.size++;
+			return true;
+		} else if (Integer.parseInt(head.getData().toString()) > Integer.parseInt(temp.getData().toString())) {
+			temp.setNextNode(head);
+			head = temp;
+			return true;
+		} else {
+
+			// traversing to last node which is points next node as null.
+			while (cur.getNextNode() != null && Integer.parseInt(cur.getNextNode().getData().toString()) < Integer
+					.parseInt(temp.getData().toString())) {
+				cur = cur.getNextNode();
+			}
+
+			// set last node to point temp node.
+			temp.setNextNode(cur.getNextNode());
+			cur.setNextNode(temp);
+			this.size++;
+			return true;
+		}
+
+	}
+	
 	public void iterator()
 	{
 		Nodes<E> cur = head;
