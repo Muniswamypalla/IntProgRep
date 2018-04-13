@@ -4,156 +4,140 @@ public class DoublyLinkedList<E> {
 
 	private DNodes<E> head;
 	private int size;
-	
+
 	public static void main(String[] args) {
-		
+
 		DoublyLinkedList<Integer> doublyLinkedList = new DoublyLinkedList<Integer>();
-		
+
 		doublyLinkedList.add(1);
 		doublyLinkedList.add(2);
 		doublyLinkedList.add(3);
 		doublyLinkedList.add(4);
 		doublyLinkedList.add(5);
 		doublyLinkedList.remove(4);
-		
-		System.out.println("size is: "+doublyLinkedList.getSize());
+
+		System.out.println("size is: " + doublyLinkedList.getSize());
 		doublyLinkedList.printForword();
 		doublyLinkedList.printBackword();
-		
-		
+
 	}
-	
-	public boolean add(E data)
-	{
+
+	public boolean add(E data) {
 		DNodes<E> temp = new DNodes<E>(data);
 		boolean result = false;
 		DNodes<E> cursor = null;
-		
-		if(head == null)
-		{
+
+		if (head == null) {
 			head = temp;
 			result = true;
-		}
-		else
-		{
+		} else {
 			cursor = head;
-			while(cursor.nextNode != null)
-			{
+			while (cursor.nextNode != null) {
 				cursor = cursor.nextNode;
 			}
-			
+
 			cursor.nextNode = temp;
 			temp.previousNode = cursor;
-			
+
 			result = true;
 		}
-		
+
 		this.size++;
 		return result;
 	}
-	
-	public boolean add(int index, E data)
-	{
+
+	public boolean add(int index, E data) {
 		boolean result = false;
 		DNodes<E> temp = new DNodes<E>(data);
 		DNodes<E> cursor = null;
-		
-		if(index == 0)
-		{
+
+		if (index == 0) {
 			temp.nextNode = head;
 			head.previousNode = temp;
 			head = temp;
-		}
-		else
-		{
+		} else {
 			cursor = head;
 			for (int i = 1; i < index; i++) {
 				cursor = cursor.nextNode;
 			}
-			
-			if(cursor.nextNode != null)
-			{
+
+			if (cursor.nextNode != null) {
 				cursor.nextNode.previousNode = temp;
 				temp.nextNode = cursor.nextNode;
 			}
-			
+
 			cursor.nextNode = temp;
 			temp.previousNode = cursor;
 		}
-		
+
 		return result;
 	}
-	
-	public E remove(int index)
-	{
+
+	public E remove(int index) {
 		E tempEle = null;
 		DNodes<E> cursor = null;
-		
-		if(index ==0)
-		{
+
+		if (index == 0) {
 			head = head.nextNode;
 			head.previousNode = null;
-		}
-		else
-		{
+		} else {
 			cursor = head;
-			
+
 			for (int i = 1; i < index; i++) {
 				cursor = cursor.nextNode;
 			}
-			
+
 			cursor.nextNode = cursor.nextNode.nextNode;
-			if(cursor.nextNode != null)
-			cursor.nextNode.previousNode = cursor;
-			
+			if (cursor.nextNode != null)
+				cursor.nextNode.previousNode = cursor;
+
 		}
-		
+
 		return tempEle;
 	}
+
 	public void printForword() {
-		
+
 		DNodes<E> cursor = head;
 		boolean arrow = true;
 
 		do {
-			
-			System.out.print((arrow) ? "|" + cursor.data + "|" : " --> " + "|" + cursor.data + "|" );
-			
+
+			System.out.print((arrow) ? "|" + cursor.data + "|" : " --> " + "|" + cursor.data + "|");
+
 			arrow = false;
 			cursor = cursor.nextNode;
-			
+
 		} while (cursor != null);
-		
+
 		System.out.println();
 	}
-	
+
 	public void printBackword() {
-		
-		
+
 		DNodes<E> cursor = head;
-		
-		while(cursor.nextNode != null){
-			
+
+		while (cursor.nextNode != null) {
+
 			cursor = cursor.nextNode;
-			
+
 		}
-		
+
 		boolean arrow = true;
 
 		do {
-			
-			System.out.print((arrow) ? "|" + cursor.data + "|" : " --> " + "|" + cursor.data + "|" );
-			
+
+			System.out.print((arrow) ? "|" + cursor.data + "|" : " --> " + "|" + cursor.data + "|");
+
 			arrow = false;
 			cursor = cursor.previousNode;
-			
+
 		} while (cursor != null);
-		
+
 		System.out.println();
 	}
-	
-	public int getSize()
-	{
+
+	public int getSize() {
 		return this.size;
 	}
 }
