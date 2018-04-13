@@ -1,5 +1,8 @@
 package com.arya.ds.programs;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree {
 
 	public static BNode root;
@@ -234,6 +237,19 @@ public class BinarySearchTree {
 		printPostOrderRec(currRoot.right);
 		System.out.print(currRoot.data + ", ");
 
+	}
+
+	public static void levelOrderTraversal(BNode startNode) {
+		Queue<BNode> queue = new LinkedList<BNode>();
+		queue.add(startNode);
+		while (!queue.isEmpty()) {
+			BNode tempNode = queue.poll();
+			System.out.printf("%d ", tempNode.data);
+			if (tempNode.left != null)
+				queue.add(tempNode.left);
+			if (tempNode.right != null)
+				queue.add(tempNode.right);
+		}
 	}
 
 }
