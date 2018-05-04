@@ -29,8 +29,8 @@ public class Singleton1 {
 
 	// to prevent cloning.
 	public Object clone() throws CloneNotSupportedException {
-		// return INSTANCE
-		throw new CloneNotSupportedException();
+		return INSTANCE;
+		//throw new CloneNotSupportedException();
 	}
 
 }
